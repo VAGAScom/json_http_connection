@@ -1,0 +1,26 @@
+# referência
+# https://github.com/bbatsov/rubocop/blob/master/config/default.yml
+
+AllCops:
+  Exclude:
+    - db/ci_schema.rb
+    - db/schema.rb
+    - db/schema.test.rb
+    - db/fixtures/**
+
+EmptyLinesAroundBody:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+AsciiComments:
+  Enabled: false
+
+AlignParameters:
+  Enabled: true
+  EnforcedStyle: with_fixed_indentation
+
+Metrics/LineLength:
+  Max: 120
+
