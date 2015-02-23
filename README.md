@@ -1,6 +1,6 @@
 # JsonHttpConnection
 
-TODO: Write a gem description
+Cria conexões com serviços HTTP da Vagas que trasmitam JSON
 
 ## Installation
 
@@ -20,12 +20,5 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Para criar uma nova conexão use `JsonHttpConnection::Connection.new(url: 'http://minha.api.vagas.com.br')`. Essa conexão expõe todos os métodos de uma `connection` do faraday, https://github.com/lostisland/faraday, configurada para tratar JSON
 
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/json_http_connection/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
