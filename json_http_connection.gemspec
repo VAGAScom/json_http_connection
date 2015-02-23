@@ -16,15 +16,14 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'faraday'
-  spec.add_dependency 'faraday_middleware'
-  spec.add_dependency 'typhoeus'
-  spec.add_dependency 'multi_json'
+  spec.add_dependency 'faraday',            '~> 0.9'
+  spec.add_dependency 'faraday_middleware', '~> 0.9'
+  spec.add_dependency 'typhoeus',           '~> 0.7'
 
-  spec.add_development_dependency 'bundler', '~> 1.7'
-  spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec'
-  spec.add_development_dependency 'guard-rspec'
-  spec.add_development_dependency 'webmock'
-  spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'bundler',     '~> 1.7'
+  spec.add_development_dependency 'rake',        '~> 10.0'
+  spec.add_development_dependency 'rspec',       '~> 3.2'
+  spec.add_development_dependency 'guard-rspec', '~> 4.5'
+  spec.add_development_dependency 'webmock',     '~> 1.20'
+  spec.add_development_dependency 'rubocop',     '~> 0.29'
 end
