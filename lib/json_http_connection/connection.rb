@@ -1,11 +1,11 @@
-require 'vagas_service_connection/version'
+require 'json_http_connection/version'
 require 'faraday'
 require 'faraday_middleware'
 
 require 'typhoeus'
 require 'typhoeus/adapters/faraday'
 
-module VagasServiceConnection
+module JsonHttpConnection
   ##
   # Classe para manter uma conexão permanente com um serviço do Vagas. Utiliza
   # o faraday e o typhoeus por de baixo dos panos e só sabe trabalhar com json

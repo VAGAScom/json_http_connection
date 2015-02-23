@@ -1,10 +1,10 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'vagas_service_connection/version'
+require 'json_http_connection/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'vagas_service_connection'
-  spec.version       = VagasServiceConnection::VERSION
+  spec.name          = 'json_http_connection'
+  spec.version       = JsonHttpConnection::VERSION
   spec.authors       = ['Fernando Raganhan Barbosa']
   spec.email         = ['fernando.barbosa@vagas.com.br']
   spec.summary       = %q(Cria conexões com serviços HTTP da Vagas que trasmitam JSON)

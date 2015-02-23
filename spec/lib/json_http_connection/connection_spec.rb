@@ -1,11 +1,11 @@
-require 'vagas_service_connection'
+require 'json_http_connection'
 require 'webmock/rspec'
 
-RSpec.describe VagasServiceConnection::Connection do
+RSpec.describe JsonHttpConnection::Connection do
   before { WebMock.disable_net_connect! }
   after  { WebMock.allow_net_connect! }
 
-  subject(:client) { VagasServiceConnection::Connection.new(url: 'http://nao.existe') }
+  subject(:client) { JsonHttpConnection::Connection.new(url: 'http://nao.existe') }
 
   it 'deve executar as requests no endpoint configurado' do
     stub = stub_request(:get, 'http://nao.existe/servico.json')
