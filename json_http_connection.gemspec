@@ -7,8 +7,8 @@ Gem::Specification.new do |spec|
   spec.version       = JsonHttpConnection::VERSION
   spec.authors       = ['Fernando Raganhan Barbosa']
   spec.email         = ['fernando.barbosa@vagas.com.br']
-  spec.summary       = %q(Cria conexões com serviços HTTP da Vagas que trasmitam JSON)
-  spec.homepage      = ''
+  spec.summary       = %q(Permanent HTTP connections to JSON services using faraday and typhoeus)
+  spec.homepage      = 'https://github.com/VAGAScom/json_http_connection'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
