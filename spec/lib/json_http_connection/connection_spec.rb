@@ -5,44 +5,44 @@ RSpec.describe JsonHttpConnection::Connection do
   before { WebMock.disable_net_connect! }
   after  { WebMock.allow_net_connect! }
 
-  subject(:client) { JsonHttpConnection::Connection.new(url: 'http://nao.existe') }
+  subject(:client) { JsonHttpConnection::Connection.new(url: 'http://my.domain/') }
 
-  it 'deve executar as requests no endpoint configurado' do
-    stub = stub_request(:get, 'http://nao.existe/servico.json')
+  it 'should execute the requests on the correct URI' do
+    stub = stub_request(:get, 'http://my.domain/service.json')
 
-    client.get '/servico.json'
+    client.get '/service.json'
 
     expect(stub).to have_been_requested
   end
 
-  it 'deve serializar para json se não for uma string' do
-    stub = stub_request(:post, 'http://nao.existe/servico.json').with(
+  it 'should serialize the json request body' do
+    stub = stub_request(:post, 'http://my.domain/service.json').with(
       headers: { 'Content-Type' => 'application/json' },
-      body: '{"chave":"valor"}')
+      body: '{"key":"value"}')
 
-    client.post '/servico.json', chave: 'valor'
+    client.post '/service.json', key: 'value'
 
     expect(stub).to have_been_requested
   end
 
-  it 'não precisa serializar para json se for uma string' do
-    stub = stub_request(:post, 'http://nao.existe/servico.json').with(
+  it "shouldn't serialize if it's already a string" do
+    stub = stub_request(:post, 'http://my.domain/service.json').with(
       headers: { 'Content-Type' => 'application/json' },
-      body: '{"chave":"valor"}')
+      body: '{"key":"value"}')
 
-    client.post '/servico.json', '{"chave":"valor"}'
+    client.post '/service.json', '{"key":"value"}'
 
     expect(stub).to have_been_requested
   end
 
-  it 'deve parsear o json da response automaticamente' do
-    stub = stub_request(:get, 'http://nao.existe/servico.json').to_return(
-      body: '{"chave":"valor"}',
+  it 'should parse the response body' do
+    stub = stub_request(:get, 'http://my.domain/service.json').to_return(
+      body: '{"key":"value"}',
       status: 200,
       headers: { 'Content-Type' => 'application/json' })
 
-    response = client.get '/servico.json'
-    expect(response.body).to eq('chave' => 'valor')
+    response = client.get '/service.json'
+    expect(response.body).to eq('key' => 'value')
 
     expect(stub).to have_been_requested
   end

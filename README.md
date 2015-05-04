@@ -1,6 +1,6 @@
 # JsonHttpConnection
 
-Cria conexões com serviços HTTP da Vagas que trasmitam JSON
+Make HTTP connections to JSON services using faraday and typhoeus.  
 
 ## Installation
 
@@ -20,5 +20,4 @@ Or install it yourself as:
 
 ## Usage
 
-Para criar uma nova conexão use `JsonHttpConnection::Connection.new(url: 'http://minha.api.vagas.com.br')`. Essa conexão expõe todos os métodos de uma `connection` do faraday, https://github.com/lostisland/faraday, configurada para tratar JSON
-
+To create a new connection: `JsonHttpConnection::Connection.new(url: 'http://my.service.url/')`. This is a decorated faraday connection with middlewares configured to deal with JSON

@@ -7,8 +7,7 @@ require 'typhoeus/adapters/faraday'
 
 module JsonHttpConnection
   ##
-  # Classe para manter uma conexão permanente com um serviço do Vagas. Utiliza
-  # o faraday e o typhoeus por de baixo dos panos e só sabe trabalhar com json
+  # Permanent connection to a JSON HTTP Service using faraday and typhoeus
   class Connection < SimpleDelegator
     attr_reader :config
 
