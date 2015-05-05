@@ -20,8 +20,13 @@ module JsonHttpConnection
     private
 
     def faraday_opts
-      { url: config[:url],
-        headers: { 'Content-Type' => 'application/json' } }
+      {
+        url: config[:url],
+        headers: {
+          'Content-Type' => 'application/json',
+          'Accept' => 'application/json'
+        }
+      }
     end
 
     def faraday_connection
