@@ -13,24 +13,17 @@ module JsonHttpConnection
 
     def initialize(config)
       @config = config
+      @config[:headers] ||= {}
+      @config[:headers].merge!('Content-Type' => 'application/json',
+                               'Accept' => 'application/json')
 
       super(faraday_connection)
     end
 
     private
 
-    def faraday_opts
-      {
-        url: config[:url],
-        headers: {
-          'Content-Type' => 'application/json',
-          'Accept' => 'application/json'
-        }
-      }
-    end
-
     def faraday_connection
-      @connection ||= Faraday.new(faraday_opts) do |c|
+      @connection ||= Faraday.new(@config) do |c|
         c.request :json
         c.adapter :typhoeus
         c.response :json, content_type: /\bjson$/
